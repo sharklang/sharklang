@@ -1,0 +1,4 @@
+[submodule "com.shark.lang.dd.parent"]
+	path = com.shark.lang.dd.parent
+	url = https://github.com/sharklang/com.shark.lang.dd.parent.git
+	branch = dd-parent-init
