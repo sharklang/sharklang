@@ -95,4 +95,4 @@ So using DSLs allows to hit several birds with the same stone:
 Sharklang is currently mostly a design and concept, with first languages and code generators available in beta versions. It aims at being totally open source and it is thus using the most simple and permissive open source license (BSD Simple). Feel free steal ideas, like this mix of DSL/greenIT approach, or to get in touch at sharklang.org@gmail.com if you want to contribute to Sharklang and help limit the growth of CO2 emission that our digital world is driving. 
 
 
-<font size="6">1. See What a DSL is at the [DSL Wikipedia Page](https://en.wikipedia.org/wiki/Domain-specific_language)</font>
+<font size="+1">1. See What a DSL is at the [DSL Wikipedia Page](https://en.wikipedia.org/wiki/Domain-specific_language)</font>
