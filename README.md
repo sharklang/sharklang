@@ -21,7 +21,8 @@ Interestingly enough, having such objectives with a focus on being green and sus
 ![ProfitableCarbonReduction](/img/ProfitableCarbonReduction.png)
   
 Sharks are one of the most energy efficient animals.
-As CO2 emissions reduction of software mostly boils down to energy efficiency across the whole software lifecycle (design, run, end of life...), sharks were chosen as the emblem of the platform. 
+As CO2 emissions reduction of software mostly boils down to energy efficiency across the whole software lifecycle (design, run, end of life...), sharks were chosen as the emblem of the platform.
+
 
 ### But how is this achieved?
 
