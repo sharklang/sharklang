@@ -26,7 +26,9 @@ As CO2 emissions reduction of software mostly boils down to energy efficiency ac
 
 ### But how is this achieved?
 
+
 #### 1) Language Based Software Factory
+
 
 Sharklang is primarily a collection of consistent and interconnected Domain Specific Languages ([DSLs on Wikipedia](https://en.wikipedia.org/wiki/Domain-specific_language)) that constitute what could be called a "Language Based Software Factory" (LBSF), hence the name Shark-lang.
 
@@ -51,7 +53,9 @@ This focus on design and development efficiency, and on requirement rigor/traceb
 
 The Sharklang software factory also focuses on improving the future maintainability of the resulting code: homogeneity, concision of the DSLs, links to documentation and requirements, strict version control… This allows to avoid early software obsolescence and "spagetthi code" situations and thus reduces a lot its carbon footprint.
 
+
 #### 2) Carbon Optimized Runtime Stack And Design Patterns
+
 
 Now that the principles of the development environment are introduced, lets talk about the runtime stack: using DLSs allows to write simple business code, but run it on the most energy efficient runtime fullstack available to reduce CO2 emissions. In other words, highly optimized code is generated from the DSLs, which would otherwise be too difficult for standard developpers to directly produce and maintain. This is the main opportunity given to us when using DSLs for GreenIT, and the reason why Sharklang relies on DSLs to reduce carbon emissions. 
 
@@ -63,7 +67,7 @@ The first runtime stack chosen is:
 - [Vertx](https://vertx.io) and [RocksDB](https://rocksdb.org) on GKE/Docker on the back end side, providing REST API.
 - Http/2 with compression over TLS 1.3 is used for transport (with openSSL, ALPN, HPACK, level 8 compression) until HTTP/3 is supported by Netty/Vertx 
 
-![Logos](/img/Logos.png)
+![Logos](/img/SharkLangLogos.png)
 
 Indeed native apps are leaner than web applications running on the browser, hence the choice of Flutter. Then on the backend side, running in a container is not only more mainstream, which is required for adoption, but also more optimal in terms of hardware ressources usage in data centers. As for the choice of GKE it is mostly due to Google head start on being carbon neutral compared to competitors. 
 
@@ -77,7 +81,9 @@ Unfortunately HTTP/3 is not yet fully available on Netty/Vertx yet, but this is 
 
 In the end, other backend runtimes will also follow as more deployment options, because innovations will continue to optimize performance and energy efficiency, and because the decoupling of the DSLs will allow it. Possible candidates could then be rust/actix or C/C++. The initial choice of Java is because it is more mainstream than Rust, and easier to manage and generate with xText than C/C++. And also because optimal Java code with the best JIT compilers options (Graal) can be close enough to C/Rust on the CPUfootprint side (less so for memory). 
 
+
 #### 3) Lean and Carbon Neutral Default Deployment Approach
+
 
 In a modern optimal information system, Front End native apps interact with Back End microservice APIs through a thin orchestration layer and secured API gateway, with technologies such as Ngnix or Kafka. 
 
@@ -89,8 +95,7 @@ But more importantly, Sharklang offers a default deployment approach with availa
  - Collocation of data and back end processing for that reason and to be a lot leaner
  - Scalability is important, but should be achieved in a way that does not increase carbon footprint too much --> application level sharding is suggested as it allow collocation of data and processing 
  
- The default Sharklang deployment approach also suggest to collocate roles like API gateway and load balancer and orchestration layer in order to limit the amount of network hops which are all using more power and thus CO2 than we realize.
-
+The default Sharklang deployment approach also suggest to collocate roles like API gateway and load balancer and orchestration layer in order to limit the amount of network hops which are all using more power and thus CO2 than we realize.
 
 Some design choices of Sharklang are very opinionated and the resulting software development factory is preset with many things. Deployment to GKE with ready to use pipeline and topology, code and requirement management processes, strict controls at compile time, code style/formatting, and then of course the generated code and the underlying runtime platform. All can be customized by a DSL specialist, but not by a developer. This makes it a ready to use, framed/constrained, and thus efficient development environment, but with what might appear like a lack of flexibilty. This is thus suited for large enterprise software development teams, that can afford to have a method and architecture R&D team that does the customization in a centralized controlled way, but that otherwise needs top standardization of code to ensure maintainability. And that allows to have all other developpers focus on business rules and alignment to requirements.
 
