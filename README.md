@@ -1,5 +1,7 @@
 # Sharklang - Develop business application quicker, in a sustainable way
 
+### What is Sharklang?
+
 Sharklang is a business application development platform allowing to:
   - build large-scale enterprise software faster
   - with a **reduced software carbon footprint**
@@ -64,15 +66,16 @@ The first runtime stack chosen is:
 - [Flutter](https://flutter.dev) on the Front End side to offer native apps on all platforms 
 - [Vertx](https://vertx.io) and [RocksDB](https://rocksdb.org) on GKE/Docker on the back end side, providing REST API
 - Http/2 with compression over TLS 1.3 is used for transport (with openSSL, ALPN, HPACK, level 8 compression) until HTTP/3 is supported by Netty/Vertx 
-- FlattBuffers for serialized data, in the database and over the network
+- [FlattBuffers](https://google.github.io/flatbuffers) for serialized data, in the database and over the network
 <p align="center"><img src="/img/SharkLangLogos.png"></p>
 Indeed native apps are leaner than web applications running on the browser, hence the choice of Flutter. Then on the backend side, running in a container is not only more mainstream, which is required for adoption, but also more optimal in terms of hardware resources usage in data centers. As for the choice of GKE, it is mostly due to Google head start on being carbon neutral compared to competitors. 
 
-Vertx is a mature framework with optimal usage of CPU resources due to the use of an event loop approach with a callback programming style. It is naturally combining this optimized thread resource usage design with non-blocking APIs for IOs across the board. This makes it a good candidate to reduce CO2 emissions whilst sticking to mainstream java frameworks: a lower number of kernel threads are used and are no wasting time waiting for IOs. The ranking by [the last Techempower Round 20](https://www.techempower.com/benchmarks/#section=data-r20&hw=ph&test=composite) is a good illustration of that. 
+ 
+Vertx is a mature framework with optimal usage of CPU resources. Indeed it uses of an event loop approach with a callback programming style. It is naturally combining this optimized thread resource usage design with non-blocking APIs for IOs across the board. This makes it a good candidate to reduce CO2 emissions whilst sticking to mainstream java frameworks: a lower number of kernel threads are used and are no wasting time waiting for IOs. The ranking by [the last Techempower Round 20](https://www.techempower.com/benchmarks/#section=data-r20&hw=ph&test=composite) is a good illustration of that. 
 
-The trade-off of such a platform is that programming is complicated and would require skilfull developers: "callback-hell" is a known maintainability anti-pattern... But in our case, Sharklang DSLs are hiding the complexity of that programming style.
+The trade-off of such a platform is that programming is complicated and would require skilfull developers: "callback-hell" is a known maintainability anti-pattern,especially for simple business applications... But in our case, Sharklang DSLs are hiding the complexity of that programming style.
 
-The collocation with a lean database engine like RocksDB is a lot less classical, and combined with the proposal to rely on application level sharding for scalability, this is what makes the Sharklang technical architecture really lean and carbon efficient, as described in the last section. But if it is not yet mainstream, RocksBD is still a mature storage API, used by many modern frameworks like Apache Kafka, YugabyteDB or CockroachDB. And for business applications in microservice architecture, it does the job in the leanest way, with less network hops and cross nodes synchronizations than with a Cassandra or Google Spanner.
+The collocation with a lean database engine like RocksDB is a lot less classical, and combined with the proposal to rely on application level sharding for scalability, this is what makes the Sharklang technical architecture really lean and carbon efficient, as described in the last section. Even if it is not yet mainstream, RocksBD is a mature storage solution, used by many modern frameworks like Apache Kafka, YugabyteDB or CockroachDB. And for business applications in a microservice architecture, it does the job in the leanest way, with less network hops and cross nodes synchronizations than with a Cassandra or Google Spanner.
 
 Unfortunately, HTTP/3 is not yet fully available on Netty/Vertx yet, but this is being implemented. It will provide another level of network communication optimization, which is often overlooked when optimizing performance, whilst it is responsible for a large portion of the carbon footprint.
 
@@ -84,21 +87,27 @@ In the end, other backend runtimes will also follow as more deployment options, 
 
 In a modern optimal information system, Front End native apps interact with Back End microservice APIs through a thin orchestration layer and secured API gateway, with technologies such as Ngnix or Kafka. 
 
-Sharkland is not mandating this, but it provides a way to describe service composition in its "sf" language (service flow), that matches this approach: persisted service requests, publish and subscribe, asynchronous vs synchronous calls…  
+Sharkland is not mandating this, but aligns to this approach. It provides for example a way to describe service composition in its "sf" language (service flow), with persisted service requests, publish and subscribe modes, asynchronous vs synchronous calls…  
 
 But more importantly, Sharklang offers a default deployment approach with availability, scalability, security, API management and orchestration of services in a way that is both CO2 optimized and adapted to business applications. The core principles of this default deployment topology are:
 
- - Reduction or at least balance of the number of physical tiers and thus of the amount of network hops in a service invocation
+ - Reduction, or at least balance, of the number of physical tiers and thus of the amount of network hops in a service invocation
  - Collocation of data and back end processing for that reason and to be a lot leaner
- - Scalability is important, but should be achieved in a way that does not increase carbon footprint too much --> application level sharding is suggested as it allow collocation of data and processing 
+ - Scalability is important, but should be achieved in a way that does not increase carbon footprint too much: application level sharding is thus suggested as it is requiring less processing at runtime, even if it increases the complexity at design time
  
-The default Sharklang deployment approach also suggest to collocate roles like API gateway and load balancer and orchestration layer in order to limit the amount of network hops which are all using more power and thus CO2 than we realize.
+That final design time complexity tradeoff is mitigated by the use of the DSLs, and the inclusion of this application level sharding aspect to the data definition and service definition languages.
+ 
+The default Sharklang deployment approach also suggests to collocate roles like API gateway,load balancer and orchestration layer in order to limit the amount of network hops which are all using more power and thus CO2 than we realize.
 
-Some design choices of Sharklang are very opinionated and the resulting software development factory is preset with many things. Deployment to GKE with ready to use pipeline and topology, code and requirement management processes, strict controls at compile time, code style/formatting, and then of course the generated code and the underlying runtime platform. All can be customized by a DSL specialist, but not by a developer. This makes it a ready to use, framed/constrained, and thus efficient development environment, but with what might appear like a lack of flexibility. This is thus suited for large enterprise software development teams, that can afford to have a method and architecture R&D team that does the customization in a centralized controlled way, but that otherwise needs top standardization of code to ensure maintainability. And that allows to have all other developers focus on business rules and alignment to requirements.
+### Discover more of Sharklang opinionated design and join the work !
+
+Some design choices of Sharklang are very opinionated and the resulting software development factory is preset with many things. Deployment to GKE with ready to use pipeline and topology, code and requirement management processes, strict controls at compile time, code style/formatting, and then of course the generated code and the underlying runtime platform. 
+
+All can be customized by a DSL specialist, but not by a developer. This makes it a ready to use, framed/constrained, and thus efficient development environment, but with what might appear like a lack of flexibility. This is thus suited for large enterprise software development teams, that can afford to have a method and architecture R&D team that does the customization in a centralized controlled way, and that otherwise needs top standardization of code to ensure maintainability. And that allows to have all other developers focus on business rules and alignment to requirements.
 
 So using DSLs allows to hit several birds with the same stone:
 
-- software dev is simpler, adapted to business applications, and so less expensive upfront, but also more maintainable which is key on the greenIT side 
+- software dev is simpler, adapted to business applications, and so less expensive upfront, but also more maintainable which is key on the greenIT side .
 
 - software dev is abstracted from runtime which allows to use complex dev frameworks and techniques (non blocking, event loops, systematic use of factories, flatbuffers and other memory allocation reductions, inlining...) which are key to improve performances and reduce CO2 footprint. But this is achieved without introducing complexity and the development techniques remain accessible to  standard, non-expert, business application developers.
 
@@ -106,4 +115,8 @@ So using DSLs allows to hit several birds with the same stone:
 
 Sharklang is currently mostly a design and concept, with first languages and code generators available in beta versions. It aims at being totally open source and it is thus using the most simple and permissive open source license (BSD Simple). Feel free to steal ideas, like this mix of DSL/greenIT approach, or to get in touch at sharklang.org@gmail.com if you want to contribute to Sharklang and help limit the growth of CO2 emission that our digital world is driving. 
 
+Further reads:
+
+- technical design principals
+...
 
