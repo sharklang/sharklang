@@ -11,16 +11,14 @@ Following a holistic greenIT oriented approach, all phases of software lifecycle
 All design decisions for the Sharklang dev platform and its runtime components are thus aiming to reduce CO2 emissions at all stages:
   - at creation time: reduce development time and cost and so the initial CO2 footprint of the build process
   - at run time: 
-    - reduce CO2 footprint with better performance, energy efficiency and less hardware requirements
+    - reduce carbon emissions with better performance, optimal energy efficiency and less hardware requirements
     - increase maintainability to extend application lifespan at most and avoid early obsolescence 
     
-And even if performance, energy efficiency and carbon footprint are the most important Non-Functional Requirements (NFRs) that the platform is structured around, others are not left behind such as Security, which is paramount nowadays, and also Scalability and Availability. In a greenIT approach, a software that does not have these 3 characteristics won't have a long lifespan, which is itself a waste of carbon emission.
+And even if performance, energy efficiency and carbon footprint are the most important Non-Functional Requirements (NFRs) that the platform is structured around, others are not left behind such as Security, which is paramount nowadays, and also Scalability and Availability. In a greenIT approach, a software that does not have these 3 characteristics won't have a long lifespan anyways, which is itself a waste of carbon emission.
 
 Interestingly enough, having such objectives with a focus on being green and sustainable does also bring business benefits and profitability:
-
 ![ProfitableCarbonReduction](/img/ProfitableCarbonReduction.png)
-  
-Sharks are one of the most energy efficient animals.
+Sharks are one of **the most energy efficient animals**.
 As CO2 emissions reduction of software mostly boils down to energy efficiency across the whole software lifecycle (design, run, end of life...), sharks were chosen as the emblem of the platform.
 
 
@@ -39,15 +37,15 @@ These languages/DSLs are developed using [xText](https://www.eclipse.org/Xtext),
 
 The DSLs are indeed focusing on being concise and adapted to the development of business apps, which make them very productive:
 
-- specializing on classical data and process flow oriented business applications, it hides runtime boiler plate code that gets generated
+- specializing on data and process flow oriented business applications, it hides runtime boiler plate code that gets generated automatically
 - notions are described once using one of the DSLs (DRY principle) 
 - each DSL is optimal for its problem space which increases robustness and productivity: requirements, data definition, service definition, business rules, process flows , MVC (forms, UI, style, data model, page flow)... all are using their specialized DSL
 - text capture is used for everything (vs. gui / drag and drop tools) which is more efficient at the time of capture/coding
-- everything is code which allows tight version control and reduced size
-- at the same time, the platform provides several different graphical views generated on the fly that can be used to support design, validation, communication or collaboration processes
+- everything is code which allows tight version control, easier impact analysis, and reduced size
+- at the same time, the platform provides several graphical views that can be used to support design, validation, communication or collaboration processes
 - development style and coding is very constrained and controlled to increase homogeneity, reduce the risk of errors, and increase future maintainability 
 - integration to version control, documentation management, test run and deployment comes also out of the box, which not only creates efficiency, but also increases maintainability and thus longevity
-- in the end, Sharklang offers many of the same benefits as low code development solutions, but in a text based way (simple code), which allows to be more efficient and create more maintainable systems than when relying on heavyweight graphical development tools. And furthermore, it is open source and can be customized
+- in the end, Sharklang offers many of the same benefits as low code development solutions, but in a text based way (simple code), which allows to be more efficient and create more maintainable systems than when relying on heavyweight graphical development tools. And furthermore, it is open source and can be customized.
 
 This focus on design and development efficiency, and on requirement rigor/traceability, is not only reducing software design cost and increasing time to market, it is also allowing to produce solutions that are more aligned to business needs. This contributes a lot to the reduction of the IT CO2 footprint. Indeed, failed projects, software that are partially used and are not adapted, all generate a lot of carbon: they are replaced after a few years, or worse, workaround systems are used based on analytics platforms or productivity tools to compensate, which significantly augments the IT bill and the CO2 emissions. Too many IT projects still fail despite so many attempts to solve this core issue of the IT industry, and it is the first thing to tackle if we want to reduce IT carbon emissions.
 
@@ -64,12 +62,10 @@ So DSLs abstract from the underlying runtime platform, isolating the business ru
 The first runtime stack chosen is:
 
 - [Flutter](https://flutter.dev) on the Front End side to offer native apps on all platforms 
-- [Vertx](https://vertx.io) and [RocksDB](https://rocksdb.org) on GKE/Docker on the back end side, providing REST API.
+- [Vertx](https://vertx.io) and [RocksDB](https://rocksdb.org) on GKE/Docker on the back end side, providing REST API
 - Http/2 with compression over TLS 1.3 is used for transport (with openSSL, ALPN, HPACK, level 8 compression) until HTTP/3 is supported by Netty/Vertx 
 - FlattBuffers for serialized data, in the database and over the network
-<p align="center">
-![Logos](/img/SharkLangLogos.png)
-</p>
+<p align="center"><img src="/img/SharkLangLogos.png"></p>
 Indeed native apps are leaner than web applications running on the browser, hence the choice of Flutter. Then on the backend side, running in a container is not only more mainstream, which is required for adoption, but also more optimal in terms of hardware resources usage in data centers. As for the choice of GKE, it is mostly due to Google head start on being carbon neutral compared to competitors. 
 
 Vertx is a mature framework with optimal usage of CPU resources due to the use of an event loop approach with a callback programming style. It is naturally combining this optimized thread resource usage design with non-blocking APIs for IOs across the board. This makes it a good candidate to reduce CO2 emissions whilst sticking to mainstream java frameworks: a lower number of kernel threads are used and are no wasting time waiting for IOs. The ranking by [the last Techempower Round 20](https://www.techempower.com/benchmarks/#section=data-r20&hw=ph&test=composite) is a good illustration of that. 
