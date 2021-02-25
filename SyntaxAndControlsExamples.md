@@ -4,7 +4,7 @@ These first examples come from the dd (data definition) language that is the fir
 
 ## Constrained, Consize and Simple Syntax
 
-The spirit is to be as lean and consize as possible as it contributes to simplicity, better readabilitya and better productivity at coding time.
+The spirit is to be as lean and consize as possible as it contributes to simplicity, better readability and better productivity at coding time.
 
 Key words are thus designed to be short and explicit and any superfluous language construct such as end of line termination or block delimiters are excluded.
 
@@ -16,7 +16,7 @@ Here is an example of what it looks likes for the DD language:
 
 ![dd syntax Example](/img/ddExampleNoError.png)
 
-In the example above comments are mandatory, constants have to be uppercase, Data Objects or Entities have to start with an uppercase… many coding styles are imposed as part of the compiler, and not as a style or formatting policy. 
+In the example above comments are mandatory, constants have to be uppercase, Data Objects or Entities have to start with an uppercase… Many coding styles are imposed as part of the compiler, and not as a style or formatting policy implemented by another tool on the side.
 
 The experience of large development shops, often offshore, show that having a very homogenuous coding style is helping to improve maintainability, and this is thus very oriented in that direction.
 
@@ -35,7 +35,7 @@ Here are the other controls that the sharklang languages do, preventing compilia
  - comment in code is the real documentation, together with clean explicit code, and so comment is made part of the language and is mandatory
  - it is propagated to the generated java or C code, which is more complex, but kept as readable as possible still
  - link to requirements is mandatory with the from statement
- - max size is compared to the default values
+ - precision, min and max sizes are compared to the default values on the fly and not only used automatically when creating or serializing objects then in the other DSL languages
  - expressions are checked against expected data types (boolean for contraints, decalred type for default values)
  - expressions are checked to control if operators are compatible with the variable or constants data types
  - the constraint with the name of the entity (here #CashAccount) can only refer to fields of this entity and no other entities
