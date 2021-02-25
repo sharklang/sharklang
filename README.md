@@ -26,6 +26,7 @@ As CO2 emissions reduction of software mostly boils down to energy efficiency ac
 
 ### But how is this achieved?
 
+![How](/img/SharklangHow.png)
 
 #### 1) Language Based Software Factory
 
@@ -59,6 +60,8 @@ The Sharklang software factory also focuses on improving the future maintainabil
 
 Now that the principles of the development environment are introduced, lets talk about the runtime stack: using DLSs allows to write simple business code, but run it on the most energy efficient runtime full stack available to reduce CO2 emissions. In other words, highly optimized code is generated from the DSLs, which would otherwise be too difficult for standard developers to directly produce and maintain. This is the main opportunity given to us when using DSLs for GreenIT, and the reason why Sharklang relies on DSLs to reduce carbon emissions. 
 
+![Wordcloud](/img/wordcloud.png)
+
 So DSLs abstract from the underlying runtime platform, isolating the business rules asset from technology. Not only does it allow to generate complex optimized code, but it can also offer several code generation options, and better adapt to evolving non-functional requirements, and to future technology changes. Again another way of improving software longevity.
 
 The first runtime stack chosen is:
@@ -80,6 +83,10 @@ The collocation with a lean database engine like RocksDB is a lot less classical
 Unfortunately, HTTP/3 is not yet fully available on Netty/Vertx yet, but this is being implemented. It will provide another level of network communication optimization, which is often overlooked when optimizing performance, whilst it is responsible for a large portion of the carbon footprint.
 
 In the end, other backend runtimes will also follow as more deployment options, because innovations will continue to optimize performance and energy efficiency, and because the decoupling of the DSLs will allow it. Possible candidates could then be Rust/Actix or C/C++. The initial choice of Java is because it is more mainstream than Rust, and easier to manage and generate with xText than C/C++. And also because optimal Java code with the best JIT compilers options (Graal) can be close enough to C/Rust on the CPU footprint side (less so for memory). 
+
+On top of the above technical components, other design patterns are used as summarized in this wordcloud.
+
+
 
 
 #### 3) Lean and Carbon Neutral Default Deployment Approach
