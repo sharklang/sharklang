@@ -46,7 +46,7 @@ The DSLs are indeed focusing on being concise and adapted to the development of 
 - text capture is used for everything (vs. gui / drag and drop tools) which is more efficient at the time of capture/coding
 - everything is code which allows tight version control, easier impact analysis, and reduced size
 - at the same time, the platform provides several graphical views that can be used to support design, validation, communication or collaboration processes
-- development style and coding is very constrained and controlled to increase homogeneity, reduce the risk of errors, and increase future maintainability 
+- development style and coding is very constrained and controlled to increase homogeneity, reduce the risk of errors, and increase future maintainability. Examples are available [here](/SyntaxAndControlsExamples.md) 
 - integration to version control, documentation management, test run and deployment comes also out of the box, which not only creates efficiency, but also increases maintainability and thus longevity
 - in the end, Sharklang offers many of the same benefits as low code development solutions, but in a text based way (simple code), which allows to be more efficient and create more maintainable systems than when relying on heavyweight graphical development tools. And furthermore, it is open source and can be customized.
 
