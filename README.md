@@ -26,8 +26,6 @@ As CO2 emissions reduction of software mostly boils down to energy efficiency ac
 
 ### But how is this achieved?
 
-![How](/img/SharklangHow.png)
-
 #### 1) Language Based Software Factory
 
 
@@ -37,6 +35,8 @@ These languages/DSLs are developed using [xText](https://www.eclipse.org/Xtext),
 
 - design and develop enterprise micro service/API oriented business software, 
 - provide full traceability from test cases, requirements and business processes down to business rules, data structures, constraints and code
+
+<p align="center"><img src="/img/SharklangHow.png"></p>
 
 The DSLs are indeed focusing on being concise and adapted to the development of business apps, which make them very productive:
 
@@ -60,7 +60,7 @@ The Sharklang software factory also focuses on improving the future maintainabil
 
 Now that the principles of the development environment are introduced, lets talk about the runtime stack: using DLSs allows to write simple business code, but run it on the most energy efficient runtime full stack available to reduce CO2 emissions. In other words, highly optimized code is generated from the DSLs, which would otherwise be too difficult for standard developers to directly produce and maintain. This is the main opportunity given to us when using DSLs for GreenIT, and the reason why Sharklang relies on DSLs to reduce carbon emissions. 
 
-![Wordcloud](/img/wordcloud.png)
+<p align="center"><img src="/img/wordcloud.png"></p>
 
 So DSLs abstract from the underlying runtime platform, isolating the business rules asset from technology. Not only does it allow to generate complex optimized code, but it can also offer several code generation options, and better adapt to evolving non-functional requirements, and to future technology changes. Again another way of improving software longevity.
 
