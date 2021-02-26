@@ -2,9 +2,9 @@
 
 These first examples come from the dd (data definition) language that is the first to be avaible within the collection of Sharklang DSLs.
 
-## Constrained, Concize and Simple Syntax
+## Constrained, Concise and Simple Syntax
 
-The spirit is to be as lean and concize as possible as it contributes to simplicity, better readability and better productivity at coding time.
+The spirit is to be as lean and concise as possible as it contributes to simplicity, better readability and better productivity at coding time.
 
 Key words are thus designed to be short and explicit and any superfluous language construct such as end of line termination or block delimiters are excluded.
 
