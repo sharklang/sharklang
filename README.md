@@ -67,8 +67,8 @@ So DSLs abstract from the underlying runtime platform, isolating the business ru
 The first runtime stack chosen is:
 
 - [Flutter](https://flutter.dev) on the Front End side to offer native apps on all platforms 
-- [Vertx](https://vertx.io) and [RocksDB](https://rocksdb.org) on GKE/Docker on the back end side, providing REST API
-- Http/2 with compression over TLS 1.3 is used for transport (with openSSL, ALPN, HPACK, level 8 compression) until HTTP/3 is supported by Netty/Vertx 
+- [Vertx](https://vertx.io) and [RocksDB](https://rocksdb.org) on GKE/Docker on the back end side, providing REST API, using LZ4 compression
+- Http/2 with compression over TLS 1.3 is used for transport (with openSSL, ALPN, HPACK, level 8 gzip compression) until HTTP/3 is supported by Netty/Vertx 
 - [FlattBuffers](https://google.github.io/flatbuffers) for serialized data, in the database and over the network
 <p align="center"><img src="/img/SharkLangLogos.png"></p>
 Indeed native apps are leaner than web applications running on the browser, hence the choice of Flutter. Then on the backend side, running in a container is not only more mainstream, which is required for adoption, but also more optimal in terms of hardware resources usage in data centers. As for the choice of GKE, it is mostly due to Google head start on being carbon neutral compared to competitors. 
@@ -85,8 +85,6 @@ Unfortunately, HTTP/3 is not yet fully available on Netty/Vertx yet, but this is
 In the end, other backend runtimes will also follow as more deployment options, because innovations will continue to optimize performance and energy efficiency, and because the decoupling of the DSLs will allow it. Possible candidates could then be Rust/Actix or C/C++. The initial choice of Java is because it is more mainstream than Rust, and easier to manage and generate with xText than C/C++. And also because optimal Java code with the best JIT compilers options (Graal) can be close enough to C/Rust on the CPU footprint side (less so for memory). 
 
 On top of the above technical components, other design patterns are used as summarized in this wordcloud.
-
-
 
 
 #### 3) Lean and Carbon Neutral Default Deployment Approach
@@ -108,9 +106,15 @@ The default Sharklang deployment approach also suggests to collocate roles like 
 
 ### Discover more of Sharklang opinionated design and join the work !
 
-Some design choices of Sharklang are very opinionated and the resulting software development factory is preset with many things. Deployment to GKE with ready to use pipeline and topology, code and requirement management processes, strict controls at compile time, code style/formatting, and then of course the generated code and the underlying runtime platform. 
+Some design choices of Sharklang are very opinionated and the resulting software development factory is preset with many things:
 
-All can be customized by a DSL specialist, but not by a developer. This makes it a ready to use, framed/constrained, and thus efficient development environment, but with what might appear like a lack of flexibility. This is thus suited for large enterprise software development teams, that can afford to have a method and architecture R&D team that does the customization in a centralized controlled way, and that otherwise needs top standardization of code to ensure maintainability. And that allows to have all other developers focus on business rules and alignment to requirements.
+ - Deployment to GKE with ready to use pipeline and topology (people call that "cloud native" these days)
+ - Code and requirement management processes
+ - Strict controls at compile time
+ - Code style/formatting
+ - and then of course the generated code and the underlying runtime platform. 
+
+All can be customized by a DSL specialist, but not by a developer. This makes it a ready to use, framed/constrained, and thus efficient development environment, but with what might appear like a lack of flexibility. This is thus suited for large enterprise software development teams, that can afford to have a method and architecture R&D team that does the DSL customization in a centralized controlled way. Such large teams otherwise need top standardization of code to ensure maintainability, which Sharklang offers. That allows to have developers focus on business rules and alignment to requirements, and not on technical problems.
 
 So using DSLs allows to hit several birds with the same stone:
 
