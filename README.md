@@ -123,7 +123,7 @@ That final design time complexity tradeoff is mitigated by the use of the DSLs, 
  
 The default Sharklang deployment approach also suggests to collocate roles like API gateway,load balancer and orchestration layer in order to limit the amount of network hops which are all using more power and thus CO2 than we realize.
 
-In the end the high-level deployment archiecture is as follows, ensuring scalability and availability in the leanest way:
+In the end, the high-level deployment architecture is as follows, ensuring scalability and availability in the leanest way:
 ![SharkLangDeploymentArchitecture](/img/SharkLangDeploymentArchitecture.svg)
 ### Discover more of Sharklang opinionated design and join the work !
 
