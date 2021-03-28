@@ -1,3 +1,5 @@
+# Why Choose Java for a green IT REST API service provider?
+
 I have several times heard that the choice of language *does not really matter* for green IT, beyond the choice of compiled vs. interpreted:
 
  - AOT compiled C/C++/Go/Graal and close behind JIT compiled like java, js V8, PHP 8 or Python+Numba, Ruby 3.0+JIT
