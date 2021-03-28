@@ -2,8 +2,8 @@
 
 I have several times heard that the choice of language *does not really matter* for green IT, beyond the choice of compiled vs. interpreted:
 
- - AOT compiled C/C++/Go/Graal and close behind JIT compiled like java, js V8, PHP 8 or Python+Numba, Ruby 3.0+JIT
- - vs. interpretted (pure Python, PHP 7, Perl, Ruby 2.0...). 
+ - AOT compiled C/C++/Go/Graal and close behind JIT compiled like java, js V8, PHP 8, Python+Numba or Ruby 3.0+JIT
+ - Interpretted pure Python, PHP 7, Perl, Ruby 2.0... 
 
 It is partially true, because it depends on what the choice was about, and what was meant by "does not really matter".
 
@@ -54,5 +54,7 @@ That of course varies from one project to another, but as for Sharklang's object
 	
 **Conclusion**	
 
-Even if it might be 2 times more energy hungry, Java is the only good compromise for the start of Sharklang as a code generation target. Defining a good mature / mainstream C/C++ based architecture would be a challenge, with potential candidates like Drogon, but that seem not as mature as they should be. That could lead to build around Ngnix, developping ngnix modules in C that could then call dynamic librairies native apis developped with a C++ mature actor framework like [CAF](https://actor-framework.readthedocs.io/en/stable/index.html). A lot less obvious than going for Vertx or Actix, with a generated code complexity that is also higher… So then the second generation target in a few months or years would probably be Rust / Actix.
+What is the choice really about: it is not only about the raw performance at runtime, but also other keey green IT factors such as maintainability and longevity. And of course adoption, as it would be useless to develop something that no-one would ever use.
+
+So even if it might be 2 times more energy hungry, Java is the only good compromise for the start of Sharklang as a code generation target. Defining a good mature / mainstream C/C++ based architecture would be a challenge, with potential candidates like Drogon, but that seem not as mature as they should be. That could lead to build around Ngnix, developping ngnix modules in C that could then call dynamic librairies native apis developped with a C++ mature actor framework like [CAF](https://actor-framework.readthedocs.io/en/stable/index.html). A lot less obvious than going for Vertx or Actix, with a generated code complexity that is also higher… So then the second generation target in a few months or years would probably be Rust / Actix.
 
