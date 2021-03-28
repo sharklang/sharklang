@@ -153,6 +153,7 @@ Sharklang is currently mostly a design and concept, with first languages (data d
 Further reads/articles:
 
 - [Why choose Java?](/WhyChooseJava.md)
+- [DD language syntax examples](/SyntaxAndControlsExamples.md)
 - technical design principals
 ...
 
